@@ -55,13 +55,10 @@ public class RekapNilai {
 
             System.out.println("  Grade " + grade + " - " + keterangan);
 
-            System.out.println("  Grade " + grade);
-
             total += nilai;
             jumlahSah++;
             nomor++;
 
-            nomor++;
 
         } while (nilai != SELESAI);
 
