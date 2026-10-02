@@ -45,6 +45,16 @@ public class RekapNilai {
                 grade = 'E';
             }
 
+            String keterangan = switch (grade) {
+                case 'A' -> "Sangat Baik";
+                case 'B' -> "Baik";
+                case 'C' -> "Cukup";
+                case 'D' -> "Kurang";
+                default -> "Tidak Lulus";
+            };
+
+            System.out.println("  Grade " + grade + " - " + keterangan);
+
             System.out.println("  Grade " + grade);
 
             total += nilai;
@@ -54,6 +64,21 @@ public class RekapNilai {
             nomor++;
 
         } while (nilai != SELESAI);
+
+        double rata = (jumlahSah > 0) ? total / jumlahSah : 0.0;
+
+        String status = rata >= 60 ? "LULUS" : "TIDAK LULUS";
+
+        System.out.println();
+        System.out.println("Nilai sah   : " + jumlahSah);
+        System.out.println("Rata-rata   : " + String.format("%.2f", rata));
+        System.out.println("Status      : " + status);
+
+        /*
+         * Jika urutan kondisi dibalik dan >= 60 diletakkan paling atas,
+         * nilai 85 akan mendapat grade D karena kondisi >= 60 sudah benar,
+         * sehingga kondisi >= 70, >= 80, dan >= 90 tidak diperiksa.
+         */
 
         input.close();
     }
